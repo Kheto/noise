@@ -1,0 +1,17 @@
+Message alert\: Urgent call out, raid in progress! Everyone get to Wyndford Road asap!!
+audio "res://sounds/phone_vibrate.ogg"
+notification\: Raid alert! An immigration raid is in progress on Wyndfoard Road anyone available should attend
+audio "res://sounds/phone_vibrate.ogg"
+notification\: Legal observers needed! Large amounts of police on Wyndford road, any legal observers nearby please attend.
+anarchist: That's a lot of messages, is something going on?
+label question
+- Ask about the raid | [if {asked_about} == false]
+	set {asked_about} = true
+	The anarchist is already pulling on their boots as they explain.
+	anarchist: Shit! Is it nearby? Immigration Enforcement have been doing a ton of illegal raids this week.
+	jump question
+- Help them pack
+	As they gather their things you pack some snacks in their bag and pour the tea into a thermos.
+	set {stress} += 4.0
+You hold the door open for the anarchist as they rush their bike out into the street.
+jump day_end/

@@ -1,0 +1,13 @@
+Calendar remider\: Film night at the Creative Arts Centre
+label choice
+- Ask about the event | [if {asked_about} == false]
+	anarchist: Oh yeah, they're showing a film about living in a warzone. I've been meaning to see it.
+	set {asked_about} = true
+	jump choice
+- Encourage them to go
+	set {stress} += 2
+	set {connection} += 1.0
+	The Anarchist wrangles their bike out of the door and sets off into the evening.
+- Ignore it and let them rest
+	The Anarchist curls under their blanket as their mug of tea cools.
+jump day_end/

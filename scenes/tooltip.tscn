@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bwnvoqwrq8ion"]
+
+[ext_resource type="Theme" uid="uid://fiplsrdonla3" path="res://UI/main_theme.tres" id="1_vy6iq"]
+[ext_resource type="FontFile" uid="uid://dkrty0cdq0myv" path="res://fonts/Not Jam Scrawl 9/NotJamScrawl9.ttf" id="2_wnlnb"]
+[ext_resource type="Script" uid="uid://k8b42h63l5mt" path="res://scripts/tooltip.gd" id="3_8ur0u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3r63"]
+font = ExtResource("2_wnlnb")
+font_size = 9
+font_color = Color(0.81960785, 0.12156863, 0, 1)
+outline_size = 1
+outline_color = Color(0.81960785, 0.12156863, 0, 1)
+shadow_color = Color(0, 0, 0, 0.8784314)
+
+[node name="Tooltip" type="Label" unique_id=2039945105]
+visible = false
+offset_right = 36.0
+offset_bottom = 25.0
+theme = ExtResource("1_vy6iq")
+label_settings = SubResource("LabelSettings_y3r63")
+script = ExtResource("3_8ur0u")

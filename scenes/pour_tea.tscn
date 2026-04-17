@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://3t5xypk7p8sf"]
+
+[ext_resource type="Script" uid="uid://biqwhoqai8c5c" path="res://scripts/pour_tea.gd" id="1_fgj4r"]
+[ext_resource type="PackedScene" uid="uid://cxhii002i3ceo" path="res://scenes/kettle.tscn" id="1_nlcfm"]
+[ext_resource type="Texture2D" uid="uid://5e06ajfkd4b6" path="res://textures/kitchen_normalexp.png" id="1_wg24a"]
+[ext_resource type="PackedScene" uid="uid://b0sijs3de71xx" path="res://scenes/mug.tscn" id="2_joy6n"]
+[ext_resource type="Shader" uid="uid://itqau4fesb8n" path="res://shaders/palette.gdshader" id="5_7bvm0"]
+[ext_resource type="Texture2D" uid="uid://b1d6up2i5xe3o" path="res://shaders/palettes/new_palette.png" id="6_7bvm0"]
+[ext_resource type="Texture2D" uid="uid://djt73mgmpimde" path="res://textures/filter_base.png" id="7_7bvm0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ntti"]
+shader = ExtResource("5_7bvm0")
+shader_parameter/palette = ExtResource("6_7bvm0")
+
+[node name="PourTea" type="Node2D" unique_id=105211731]
+script = ExtResource("1_fgj4r")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=343267238]
+custom_minimum_size = Vector2(320, 240)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_wg24a")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="." unique_id=810847271]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="kettle" parent="Control" unique_id=335460132 instance=ExtResource("1_nlcfm")]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 57.0
+offset_right = 309.0
+offset_bottom = 185.0
+
+[node name="Mug" parent="." unique_id=1156589880 instance=ExtResource("2_joy6n")]
+position = Vector2(66, 157)
+
+[node name="Filter" type="Sprite2D" parent="." unique_id=2062456528]
+z_index = 5
+texture_filter = 1
+material = SubResource("ShaderMaterial_3ntti")
+position = Vector2(160, 120)
+scale = Vector2(31.999998, 24)
+texture = ExtResource("7_7bvm0")
+
+[connection signal="kettle_placed_back_down" from="Control/kettle" to="." method="_on_kettle_kettle_placed_back_down"]
+[connection signal="tea_full" from="Mug" to="." method="_on_mug_tea_full"]

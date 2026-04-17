@@ -1,0 +1,15 @@
+Calendar remider\: Resisting the far right, strategy and planning meeting
+label choice
+- Ask them about it | [if {asked_about} == false]
+	set {asked_about} = true
+	set {stress} += 1.0
+	anarchist: Oh! I've been meaning to go to that. A bunch of racists keep protesting outside a hotel where I grew up. I should be able to help out with info.
+	anarchist: Sounds like it'll be a pretty long day, I should bring snacks.
+	jump choice
+- Encourage them to go
+	set {stress} += 3.0
+	set {connection} += 1.0
+	The anarchist shoves various vegan oat bars into their bag before leaving to take the train.
+- Convince them to take a nap
+	The anarchist passes out while the last of a terrible film plays on the TV.
+jump day_end/

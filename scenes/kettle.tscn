@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cxhii002i3ceo"]
+
+[ext_resource type="Texture2D" uid="uid://b472bdq55wu1k" path="res://textures/kettle_body.png" id="1_f4rjj"]
+[ext_resource type="Script" uid="uid://bb24rhi37vtu6" path="res://scripts/kettle.gd" id="2_os8qg"]
+[ext_resource type="AudioStream" uid="uid://d14se3ven7wba" path="res://sounds/boil.ogg" id="3_os8qg"]
+[ext_resource type="AudioStream" uid="uid://dd0hhvsbnlwv2" path="res://sounds/click_on.ogg" id="4_ithpu"]
+[ext_resource type="AudioStream" uid="uid://duatgu1g2sfte" path="res://sounds/click_off.ogg" id="5_m4ax8"]
+[ext_resource type="Texture2D" uid="uid://c4u30ttq22g7r" path="res://textures/kettle_switch_off.png" id="6_05vmy"]
+[ext_resource type="Texture2D" uid="uid://clxhb2ceg130l" path="res://textures/kettle_switch_on.png" id="7_q44fv"]
+[ext_resource type="PackedScene" uid="uid://bwnvoqwrq8ion" path="res://scenes/tooltip.tscn" id="8_q44fv"]
+
+[node name="kettle" type="TextureRect" unique_id=335460132]
+z_index = 2
+offset_right = 129.0
+offset_bottom = 128.0
+texture = ExtResource("1_f4rjj")
+expand_mode = 2
+script = ExtResource("2_os8qg")
+
+[node name="Spout" type="Control" parent="." unique_id=1679602215]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 17.0
+offset_right = 8.0
+offset_bottom = 17.0
+
+[node name="PourTimer" type="Timer" parent="." unique_id=425655050]
+wait_time = 0.05
+one_shot = true
+
+[node name="BaseButton" type="TextureButton" parent="." unique_id=1253290047]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = 126.0
+offset_bottom = 130.0
+
+[node name="Tooltip" parent="BaseButton" unique_id=2039945105 instance=ExtResource("8_q44fv")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 111.0
+offset_bottom = 35.0
+text = "Kettle, contains:
+room temperature
+water"
+
+[node name="BoilSound" type="AudioStreamPlayer2D" parent="." unique_id=838454809]
+stream = ExtResource("3_os8qg")
+
+[node name="ClickOn" type="AudioStreamPlayer2D" parent="." unique_id=1887170695]
+stream = ExtResource("4_ithpu")
+volume_db = 4.0
+
+[node name="ClickOff" type="AudioStreamPlayer2D" parent="." unique_id=1408833356]
+stream = ExtResource("5_m4ax8")
+
+[node name="SwitchOff" type="TextureRect" parent="." unique_id=1416974115]
+z_index = -1
+layout_mode = 0
+offset_right = 129.0
+offset_bottom = 128.0
+mouse_filter = 2
+texture = ExtResource("6_05vmy")
+expand_mode = 1
+
+[node name="SwitchOn" type="TextureRect" parent="." unique_id=606776213]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_right = 129.0
+offset_bottom = 128.0
+mouse_filter = 2
+texture = ExtResource("7_q44fv")
+expand_mode = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="BaseButton" to="." method="_on_base_button_pressed"]
+[connection signal="finished" from="BoilSound" to="." method="_on_boil_sound_finished"]

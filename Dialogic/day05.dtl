@@ -1,0 +1,16 @@
+Calendar remider\: Court!!
+label choice
+- Ask about court | [if {asked_about} == false]
+	set {stress} += 1.0
+	set {asked_about} = true
+	anarchist: Uuugh, I thought that got postponed!
+	anarchist: It's witness prep stuff. I probably won't be called.
+	anarchist: I need to go.
+	jump choice
+- Get them to go
+	set {stress} += 4.0
+	set {connection} += 1.0
+	The anarchist stuffs a couple of note pads into their bag. Before they leave they spend several seconds staring at the wall.
+- Convince them to rest
+	The anarchist pulls the blankets from their eyes so they can stare blankley at the ceiling for several minutes.
+jump day_end/

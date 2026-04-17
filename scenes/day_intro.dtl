@@ -1,0 +1,23 @@
+[wait time="1.0"]
+audio "res://sounds/phone_vibrate.ogg"
+[wait time="1.0"]
+set {asked_about} = false
+set {day} += 1
+if {day} == 2.0:
+	jump day01/
+elif {day} == 3.0:
+	jump day02/
+elif {day} == 4.0:
+	jump day03/
+elif {day} == 5.0:
+	jump day04/
+elif {day} == 6.0:
+	jump day05/
+elif {day} == 7.0:
+	jump day06/
+elif {day} == 8.0:
+	jump day07/
+elif {day} == 9.0:
+	jump day08/
+else:
+	jump day_final/

@@ -1,0 +1,16 @@
+Calendar reminder\: Wizard Cycling Squad.
+Calendar reminder\: Chestnut Tenants Union, General member meeting.
+label choice
+- ask about events | [if {asked_about} == false]
+	set {asked_about} = true
+	anarchist: Oh! I need to know about the tenant union organising for next week. A few people from our group will be there and we're starting a new campaign.
+	anarchist: The Wizards group is just a fun excuse to get out on the bike. We cycle around for a bit then hang out and have a chat.
+	jump choice
+- Enourage them to go to the meeting
+	set {stress} += 3.0
+	set {connection} += 1.0
+	The anarchist trudges out into the last of the evening sun, typing out a message on their phone as they go.
+- Enourage them to go cycling
+	The anarchist checks their tyre pressure before they head out. Their head is bobbing along to music from a small portable speaker.
+	set {stress} -= 1.0
+jump day_end/

@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://domylb58xag5c"]
+
+[ext_resource type="Script" uid="uid://c8g83mhsthe80" path="res://scripts/text_scroll.gd" id="1_0ctdu"]
+[ext_resource type="FontFile" uid="uid://7f1f1bujwxpi" path="res://fonts/Not Jam Scrawl 9/NotJamScrawl12.ttf" id="1_2ckv8"]
+[ext_resource type="Texture2D" uid="uid://deuicwa4pmnaq" path="res://textures/malatesta.png" id="1_2fbfq"]
+[ext_resource type="FontFile" uid="uid://bnbgjxud2canw" path="res://fonts/NotJamChunkySans6/Not Jam Chunky Sans 9.ttf" id="2_0ctdu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fbfq"]
+font = ExtResource("1_2ckv8")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_yeqti"]
+font = ExtResource("2_0ctdu")
+font_size = 9
+
+[node name="Credits" type="Control" unique_id=1879038051]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1751906454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2fbfq")
+
+[node name="Text" type="Control" parent="." unique_id=794639183]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ctdu")
+
+[node name="Thanks" type="Label" parent="Text" unique_id=1661394454]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.0
+offset_right = 116.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "Thanks for playing!"
+label_settings = SubResource("LabelSettings_2fbfq")
+vertical_alignment = 2
+
+[node name="Attribution" type="Label" parent="Text" unique_id=1488741529]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -177.0
+offset_right = 94.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Assets used:
+
+KETTLE BOIL_R.WAV by Jamesyeremeyev
+electric kettle trigger on off on by savvah
+My Anarchy Cursors by DubDip
+cell phone smartphone vibrate single.flac by kyles
+Not Jam Scrawl 9 by Not Jam
+Not Jam Chunky Sans 6 by Not Jam
+Itch page art by my coolest friend
+Images expropriated from duplicitous corporations and sufficiently transformed to comply with local legalities"
+label_settings = SubResource("LabelSettings_yeqti")
+autowrap_mode = 2

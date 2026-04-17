@@ -1,0 +1,18 @@
+Calendar remider\: Raid resistance organising meeting (important!)
+label choice
+if :
+- Ask about the event | [if {asked_about} == false]
+	anarchist: Shit I forgot about that. I'm supposed to be facilitating.
+	set {asked_about} = true
+	set {stress} += 1.0
+	jump choice
+- Encourage them to go
+	set {stress} += 3.0
+	set {connection} += 1.0
+	The Anarchist groans as they roll out from their blankets and leave for the meeting.
+- Message the organiser to cancel
+	You type a short message appologising for the late cancelation.
+	audio "res://sounds/phone_vibrate.ogg"
+	...
+	The organiser responds\: "No worries!!"
+jump day_end/

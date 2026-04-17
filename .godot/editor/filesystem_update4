@@ -1,0 +1,7 @@
+res://scenes/credits.tscn
+res://Dialogic/style.tres
+res://UI/main_theme.tres
+res://shaders/palette.gdshader
+res://shaders/scroll.gdshader
+res://shaders/screen.gdshader
+res://Dialogic/day05.dtl

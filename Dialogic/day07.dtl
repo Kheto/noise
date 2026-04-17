@@ -1,0 +1,13 @@
+Calendar reminder\: Benefit gig! Funds for Rojava.
+label choice
+- Ask about gig | [if {asked_about} == false]
+	set {asked_about} = true
+	anarchist: Oh yeah! Swill are headlining! I bet loads of folk I know are going. I haven't been to a gig in a while.
+	jump choice
+- Convince them to go
+	set {stress} += 2.0
+	set {connection} += 1.0
+	The anarchist dons a denim jacket covered in band patches before heading out into the night.
+- Let them rest
+	From under the layers of blankets you can hear the anarchist humming punk songs.
+jump day_end/

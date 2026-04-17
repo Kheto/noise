@@ -1,0 +1,4 @@
+[clear time="0.0" portraits="false" music="false" background="false" positions="false" style="false"]
+[background arg="#000000ff" fade="3.0" wait="true"]
+Day {day}
+[end_timeline]

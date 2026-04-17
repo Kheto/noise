@@ -1,0 +1,37 @@
+Notification\: "Thanks for staying out last night, take it easy today."
+The anarchist groans as they sit upright. It was a long night waiting outside the police station for someone to be released.
+They cup their mug in both hands as they give you a rundown of what happened.
+if {connection} >= 2.0:
+	When they got there they recognised some folk they met earlier in the week.
+	Together they managed to coordinate getting supplies delivered later in the action and encouraged some newly trained legal observers to start recording police activity.
+else:
+	When they got to the action they didn't recognise many of the people in the crowd.
+	They started monitoring the police and letting people know they didn't have to answer their questions.
+At one point, the police tried to break through a line of protestors protecting someone and the situation got out of control.
+if {stress} >= 8.0 :
+	They struggled to stay focused and got pushed over by someone being tossed aside by the cops.
+	They were disorientated when trying to get back up and found themselves in a sketchy position being shouted at by cop that was losing his cool.
+	They ended up shouting back at him, another cop grabbed the anarchists wrist and they were sure they were getting arrested.
+	Whatever happened next, the police were distracted and they managed to slip away.
+	They missed the actual arrest but found out later which station someone had been taken to and headed over to catch them once they were released.
+else:
+	The anarchist had a clear head and was able to spot signs of the offensive coming. The crowd shifted as the police pushed in and the cops strugged to break the groups' linked arms.
+	At the end of the line, someone was wrenched away from the crowd and in the chaos their elbow caught one of the cops in the chest.
+	They were wrestled to the ground, the anarchist managed to get over to them as they were being arrested in time to catch their name and the station they were being taken to.
+The anarchist sips their tea.
+anarchist: Thanks for the help by the way.
+[background arg="res://textures/anarchy_symbol_crushed.jpeg" fade="1.0"]
+Your time as the anarchist's guardian-secretary has come to an end.
+if {stress} >= 8.0:
+	Unfortunately, even with your assistance, the anarchist's stress level was too high to be effective on the day it really mattered (you can try again for a better ending).
+elif {stress}   <   8.0 and {connection} < 2.0:
+	With your assistance, the anarchist was able to reduce their stress level enough to be effective but they were too disconnected from their community to organise as effectively as they could.
+else:
+	Thanks to your guidance, they were able to work effectively with their community when it mattered most.
+They will carry on now, moving the work along, hopefully a little more aware of their need to rest.
+I made this both as a way of venting about the frustration of burnout and also as a small message to you, that you need to take care of yourself too.
+Everything is going wrong all the time just now, but if you want to stop it you need to be ready.
+And that requires rest.
+So take care!
+[wait time="1.0"]
+do Globals.credits()

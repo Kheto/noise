@@ -1,0 +1,11 @@
+[background arg="res://textures/anarchy_symbol_crushed.jpeg" fade="0.0"]
+[wait time="1.0"]
+The Anarchist is burned out.
+They need time to rest but the endless list of urgent events and things to do only grows.
+To this end you are here to watch over them and make them tea.
+You also act as a buffer between the outside world.
+Screen their notifications and alerts, balancing their place in the movement with their need for rest.
+[clear time="0.0" portraits="false" music="false" background="false" positions="false" style="false"]
+[background arg="#000000ff" fade="3.0" wait="true"]
+Day 1
+[end_timeline]

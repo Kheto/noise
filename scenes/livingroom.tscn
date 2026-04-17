@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://kgiv8gc78eqx"]
+
+[ext_resource type="Texture2D" uid="uid://dge7j4jbj2bx0" path="res://textures/livingroom.png" id="1_belbq"]
+[ext_resource type="Script" uid="uid://dxqyu6bjj6ccr" path="res://scripts/livingroom.gd" id="1_hqoyq"]
+[ext_resource type="Shader" uid="uid://itqau4fesb8n" path="res://shaders/palette.gdshader" id="2_jl4oa"]
+[ext_resource type="Texture2D" uid="uid://c4jiff1hys130" path="res://textures/move_button.png" id="2_swubv"]
+[ext_resource type="Texture2D" uid="uid://fsjmvwk8a7gb" path="res://textures/move_button_pressed.png" id="3_emi0h"]
+[ext_resource type="Texture2D" uid="uid://b1d6up2i5xe3o" path="res://shaders/palettes/new_palette.png" id="3_swubv"]
+[ext_resource type="Texture2D" uid="uid://djt73mgmpimde" path="res://textures/filter_base.png" id="4_hqoyq"]
+[ext_resource type="Texture2D" uid="uid://bnnypb0pb4kq3" path="res://textures/blanket_mask.png" id="8_y3r63"]
+[ext_resource type="FontFile" uid="uid://dkrty0cdq0myv" path="res://fonts/Not Jam Scrawl 9/NotJamScrawl9.ttf" id="9_1wnl2"]
+[ext_resource type="PackedScene" uid="uid://bwnvoqwrq8ion" path="res://scenes/tooltip.tscn" id="9_7ef23"]
+[ext_resource type="Script" uid="uid://clkuxbp63yivi" path="res://scripts/stress_display.gd" id="12_7ef23"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_emi0h"]
+shader = ExtResource("2_jl4oa")
+shader_parameter/palette = ExtResource("3_swubv")
+
+[sub_resource type="LabelSettings" id="LabelSettings_po3oh"]
+font = ExtResource("9_1wnl2")
+font_size = 9
+font_color = Color(0.81960785, 0.12156863, 0, 1)
+outline_size = 1
+outline_color = Color(0.81960785, 0.12156863, 0, 1)
+shadow_color = Color(0, 0, 0, 0.8627451)
+
+[sub_resource type="Animation" id="Animation_7ef23"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.81960785, 0.12156863, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_po3oh"]
+resource_name = "flash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.27, 0.5, 0.7, 0.92),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.81960785, 0.12156863, 0, 1), Color(1, 1, 1, 1), Color(0.81960785, 0.12156863, 0, 1), Color(1, 1, 1, 1), Color(0.81960785, 0.12156863, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k00ks"]
+_data = {
+&"RESET": SubResource("Animation_7ef23"),
+&"flash": SubResource("Animation_po3oh")
+}
+
+[node name="Livingroom" type="Node2D" unique_id=97021842]
+script = ExtResource("1_hqoyq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=986500699]
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("1_belbq")
+expand_mode = 1
+
+[node name="MoveToKitchen" type="TextureButton" parent="." unique_id=610619959]
+offset_left = 288.0
+offset_right = 328.0
+offset_bottom = 240.0
+texture_pressed = ExtResource("3_emi0h")
+texture_hover = ExtResource("2_swubv")
+
+[node name="Filter" type="Sprite2D" parent="." unique_id=2072238382]
+material = SubResource("ShaderMaterial_emi0h")
+position = Vector2(160, 120)
+scale = Vector2(31.999998, 24)
+texture = ExtResource("4_hqoyq")
+
+[node name="Blankets" type="Area2D" parent="." unique_id=225926395]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Blankets" unique_id=450631637]
+position = Vector2(106.00001, 175.00002)
+scale = Vector2(0.325, 0.325)
+polygon = PackedVector2Array(10, -129.5, 6.399994, -128.5, 3, -128.5, -157, -46.5, -157.5, -3.0999985, -156.5, 0.5, -156.5, 8, -150.5, 19.100006, -150.5, 21.399994, -137.3, 33.5, -110.5, 126.5, -110.5, 129.5, 1.8999939, 129.5, 93.899994, 111.5, 99.79999, 111.5, 154.79999, 95.5, 157.5, 95.5, 157.5, 67.8, 156.5, 55.300003, 156.5, 46.399994, 141.5, -63.800003, 141.5, -73, 122.5, -108.2, 122.5, -110.5, 104.5, -123.6, 104.5, -125.1, 87.5, -129.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Blankets" unique_id=460528322]
+visible = false
+position = Vector2(119.99999, 176)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_y3r63")
+
+[node name="Tooltip" parent="Blankets" unique_id=2039945105 instance=ExtResource("9_7ef23")]
+text = "Pile of Blankets, contains:
+1 exhausted anarchist"
+
+[node name="StressDisplay" type="Label" parent="." unique_id=1612824302]
+offset_left = 28.0
+offset_top = 19.0
+offset_right = 68.0
+offset_bottom = 42.0
+label_settings = SubResource("LabelSettings_po3oh")
+script = ExtResource("12_7ef23")
+
+[node name="UpdateAnimation" type="AnimationPlayer" parent="StressDisplay" unique_id=417650495]
+libraries/ = SubResource("AnimationLibrary_k00ks")
+
+[connection signal="pressed" from="MoveToKitchen" to="." method="_on_move_to_kitchen_pressed"]

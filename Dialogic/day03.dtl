@@ -1,0 +1,16 @@
+Notification\: Emergency demo to reist the war in Iran!
+It looks like it's being called by the United Anti-War Coalition.
+label choice
+- Ask about the event | [if {asked_about} == false]
+	set {asked_about} = true
+	anarchist: Oh yeah, that makes sense. They usually do a demo when things escalate like this.
+	anarchist: Last time they had some pretty terrible people speaking though, just grifters and stuff.
+	anarchist: You just stand around listening to them for an hour then everyone leaves.
+	anarchist: A couple of friends might turn up though, or the police might try to mess with people. I should go.
+	jump choice
+- Encourage them to go
+	set {stress} += 3.0
+	The Anarchist grabs their raincoat and backpack before running for the train.
+- Ignore it
+	The Anarchist sips on their tea while looking out the window.
+jump day_end/

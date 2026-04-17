@@ -1,0 +1,21 @@
+[wait time="1.0"]
+audio "res://sounds/phone_vibrate.ogg"
+[wait time="1.0"]
+set {asked_about} = false
+set {day} += {one}
+There's a film night on at a local arts venue.
+label choice
+if :
+- Ask about the event | [if {asked_about} == false]
+	anarchist: It shoud be chill
+	set {asked_about} = true
+	jump choice
+- Encourage them to go
+	set {stress} += 1
+	The Anarchist wrangles their bike out of the door and sets off into the evening
+- Ignore it and let them rest
+	The Anarchist curls under their blanket as their mug of tea cools
+<Empty Text Event>
+[background arg="#000000ff" fade="3.0" wait="true"]
+Day {day}
+[end_timeline]
